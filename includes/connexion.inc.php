@@ -1,3 +1,5 @@
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=micro_blog', 'root', 'root');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);?>
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+?>
