@@ -21,7 +21,7 @@ if(isset($_POST['email'])&&!empty($_POST['email']) && isset($_POST['mdp'])&&!emp
 
     if ($db_mdp == $mdp) 
     {
-      $_SESSION('pseudo') = $pseudo;
+      
       $sid = md5($mail.time());
       setcookie('CookieBlog', $sid, time() + 3600);
       if(!empty($sid))

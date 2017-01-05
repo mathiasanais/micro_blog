@@ -50,7 +50,9 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="connexion.php">Connexion</a>
+                        <?php if ($connect == false) { ?><a href="connexion.php">Connexion</a>
+                        <?php } else { ?>
+                        <a href="deconnexion.php">Déconnexion - <?php echo $pseudo ?></a><?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

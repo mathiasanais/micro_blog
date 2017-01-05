@@ -17,7 +17,7 @@ include('includes/haut.inc.php');
     <form method="post" action="message.php">
         <div class="col-sm-10">  
             <div class="form-group">
-                <textarea id="message" name="message" class="form-control" placeholder="Message"><?php if(isset($contenu)&&!empty($contenu)){echo $contenu;}?></textarea>
+               <?php if ($connect == true) { ?> <textarea id="message" name="message" class="form-control" placeholder="Message"><?php if(isset($contenu)&&!empty($contenu)){echo $contenu;}?></textarea>
                <input type="hidden" id="id" name="id" value="<?php 
                if(isset ($_GET['id']) && !empty($_GET['id']))
                 {
@@ -27,7 +27,7 @@ include('includes/haut.inc.php');
         </div>
 
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-success btn-lg">Envoyer</button>
+            <button type="submit" class="btn btn-success btn-lg">Envoyer</button><?php } ?>
         </div>                        
     </form>
 </div>
@@ -49,10 +49,10 @@ while ($data = $stmt->fetch()) {
 			<?= date('d/m/Y H:i:s',$data['date'])?>
 		</div>
 		<div class="col-md-1 col-sm-2">
-			<a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id'] ;?>" role="button">Supprimer</a>
+			<?php if ($connect == true) { ?><a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id'] ;?>" role="button">Supprimer</a><?php } ?>
 		</div>
 		<div class="col-md-1 col-sm-2">
-			<a class="btn btn-primary" href="index.php?id=<?php echo $data['id'] ;?>" role="button">Modifier</a>
+			<?php if ($connect == true) { ?><a class="btn btn-primary" href="index.php?id=<?php echo $data['id'] ;?>" role="button">Modifier</a><?php } ?>
 		</div>
 	</blockquote>
 
