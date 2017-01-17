@@ -55,14 +55,17 @@ else
 
   <div class="container col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4 col-xs-8 col-xs-offset-3">
     <form class="form-signin" method="POST" action="connexion.php">
-      <h3 class="form-signin-heading">Connectez vous !</h3>
-      <label for="inputEmail" class="sr-only" >Adresse mail</label>
-      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Adresse mail" required autofocus>
-      <label for="inputPassword" class="sr-only">Mot de passe</label>
-      <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
+      <div style="border: 2px solid #2C3E50; border-radius : 5px; padding-top: 2%; padding-left: 8%;padding-right: 8%;padding-bottom: 8%;">
+      <h3 class="form-signin-heading" style ="margin-bottom:6%; text-align:center;">Connectez vous !</h3>
+        <label for="inputEmail" class="sr-only" >Adresse mail</label>
+        <input style ="margin-bottom:5%;" type="email" id="inputEmail" name="email" class="form-control" placeholder="Adresse mail" required autofocus>
+        <label for="inputPassword" class="sr-only">Mot de passe</label>
+        <input style ="margin-bottom:5%;" type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Valider</button>
+    </div>
     </form>
-  </div> <!-- /container -->
+  </div> 
+
   <h4 style="color:red;" class="col-sm-10 col-xs-10">
     <?php 
     if(!empty($_GET['message']))
@@ -76,6 +79,7 @@ else
 
   <?php
 }
+include('includes/bas.inc.php');
 
 
 ?>
