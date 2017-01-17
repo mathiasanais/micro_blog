@@ -11,8 +11,9 @@ if(isset($_POST['id'])&& !empty($_POST['id']))
 
 else if (isset($_POST['message']) && !empty($_POST['message']))
 {
-	$query = 'INSERT INTO messages (contenu,date) VALUES (:contenu , UNIX_TIMESTAMP())';
+	$query = 'INSERT INTO messages (contenu,date,user_id) VALUES (:contenu , UNIX_TIMESTAMP(),:id_user)';
 	$prep = $pdo->prepare($query);
+	$prep->bindValue(':id_user',$id);
 }
 
 	$prep->bindValue(':contenu', $_POST['message']);

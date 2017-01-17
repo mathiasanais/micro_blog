@@ -5,7 +5,7 @@ $mpp =4;
 
 if(isset ($_GET['id']) && !empty($_GET['id']))
 {
-    $query = 'SELECT contenu FROM messages WHERE id ='.$_GET['id'];
+    $query = 'SELECT contenu FROM messages WHERE messages.id ='.$_GET['id'];
     $stmt = $pdo->query($query);
     while ($data = $stmt->fetch()) 
     {
@@ -38,32 +38,37 @@ if(isset ($_GET['id']) && !empty($_GET['id']))
 
 if (isset($_GET['page']))
 {
-    $stmt = $pdo->prepare("SELECT * FROM messages ORDER BY date DESC LIMIT ".($_GET['page']*$mpp-$mpp).",".$mpp) ;
+    $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages INNER JOIN utilisateur ON utilisateur.id = messages.user_id ORDER BY date DESC LIMIT ".($_GET['page']*$mpp-$mpp).",".$mpp) ;
 
 }
 else
 {
-   $stmt = $pdo->prepare("SELECT * FROM messages ORDER BY date DESC LIMIT 0,".$mpp) ;
+   $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages INNER JOIN utilisateur ON utilisateur.id = messages.user_id ORDER BY date DESC LIMIT 0,".$mpp) ;
 }
 $stmt->execute();
 
 while ($data = $stmt -> fetch()) {
 	?>
 
-	<blockquote class="col-md-12">
+	<blockquote class="col-md-12 col-sm-8">
 		<div class="col-md-7 col-sm-6">
 			<?= $data['contenu'] ?>
         </div>
+
         <div class="col-md-2 col-sm-3">
-         <?= date('d/m/Y H:i:s',$data['date'])?>
-     </div>
-     <div class="col-md-1 col-sm-2">
-         <?php if ($connect == true) { ?><a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id'] ;?>" role="button">Supprimer</a><?php } ?>
-     </div>
-     <div class="col-md-1 col-sm-2">
-         <?php if ($connect == true) { ?><a class="btn btn-primary" href="index.php?id=<?php echo $data['id'] ;?>" role="button">Modifier</a><?php } ?>
-     </div>
- </blockquote>
+            <?= date('d/m/Y H:i:s',$data['date'])?>
+        </div>
+        
+        <div class="col-md-1 col-sm-3">
+             <?php if ($connect == true) { ?><a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id_message'] ;?>" role="button">Supprimer</a><?php } ?>
+        </div>
+        <div class="col-md-1 col-sm-3">
+             <?php if ($connect == true) { ?><a class="btn btn-primary" href="index.php?id=<?php echo $data['id_message'] ;?>" role="button">Modifier</a><?php } ?>
+        </div>
+    </blockquote>
+ <div class="col-md-2 col-sm-6 text-center" style="color: #18BC9C;">
+       <?= $data['pseudo']?>
+ </div>
 
  <?php
 }
@@ -75,7 +80,7 @@ while ($data = $stmt -> fetch()) {
 }
 
 ?>
-<div class="col-md-offset-4">
+<div class="col-md-offset-4 col-sm-8">
     <nav aria-label="Page navigation">
       <ul class="pagination pagination-lg">
         <?php if(isset($_GET['page'])&&($_GET['page']!=1)) { ?>
@@ -86,21 +91,22 @@ while ($data = $stmt -> fetch()) {
     </li>
     <?php
     } 
-    for($i=0;$i<$nbPage/4;$i++)
+    $nombrePage = ceil($nbPage/$mpp);
+    for($i=0;$i<$nombrePage;$i++)
     {
         ?>
         <li><a href="index.php?page=<?php echo $i+1;?>"><?php echo $i+1 ?></a></li>
         <?php } ?>
         <li>
           <a href="index.php?page=<?php
-          if(isset($_GET['page'])&&($_GET['page']!=1)) 
-          {
-            echo $_GET['page']+1;
+            if(isset($_GET['page'])&&($_GET['page']!=1)) 
+            {
+                echo $_GET['page']+1;
             }
             else
             {    
                echo 2;
-           }
+            }
        ?>" aria-label="Next">
        <span aria-hidden="true">&raquo;</span>
    </a>
