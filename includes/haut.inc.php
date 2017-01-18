@@ -26,54 +26,70 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="jquery-3.1.1.js"></script>
-</head>
+        <![endif]-->
+        <script type="text/javascript" src="jquery-3.1.1.js"></script>
+    </head>
 
-<body id="page-top" class="index">
+    <body id="page-top" class="index">
 
-    <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">Micro blog</a>
-            </div>
+        <!-- Navigation -->
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#page-top">Micro blog</a>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <?php if ($connect == false) { ?><a href="connexion.php">Connexion</a>
-                        <?php } else { ?>
-                        <a href="deconnexion.php">Déconnexion - <?php echo $pseudo ?></a><?php } ?>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                          <?php if ($connect == true) { ?>
+                          <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Search">
+                          </div>
+                          <button type="submit" class="btn btn-default">Submit</button>
+                      </form>
+                      <?php  } ?>
+                  </li>
+                  <li class="page-scroll">
+                    <?php if ($connect == false) { ?><a href="inscription.php">Inscription</a>
+                    <?php } ?>
+                </li>
+                <li class="page-scroll">
+                    <?php if ($connect == false) { ?><a href="connexion.php">Connexion</a>
+                    <?php } else { ?>
+                    <a href="deconnexion.php">Déconnexion - <?php echo $pseudo ?></a><?php } ?>
+                </li>
+            </ul>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-text">
-                        <span class="name">Le fil</span>
-                        <hr class="star-light">
-                    </div>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-text">
+                    <span class="name">Le fil</span>
+                    <hr class="star-light">
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- About Section -->
-    <section>
-        <div class="container">
+<!-- About Section -->
+<section>
+    <div class="container">

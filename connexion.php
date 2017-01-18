@@ -53,7 +53,7 @@ else
 
   ?>
 
-  <div class="container col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4 col-xs-8 col-xs-offset-3">
+  <div class="container col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4 col-xs-12">
     <form class="form-signin" method="POST" action="connexion.php" id="form">
       <div style="border: 2px solid #2C3E50; border-radius : 5px; padding-top: 2%; padding-left: 8%;padding-right: 8%;padding-bottom: 8%;">
       <h3 class="form-signin-heading" style ="margin-bottom:6%; text-align:center;">Connectez vous !</h3>
@@ -68,16 +68,6 @@ else
     </form>
   </div> 
 
-  <!--<h4 style="color:red;" class="col-sm-10 col-xs-10">
-    <?php 
-   /* if(!empty($_GET['message']))
-    {
-      $message = $_GET['message']; 
-
-      echo $message;
-    }*/
-    ?>
-  </h4>-->
 
 <script>
   $(function(){

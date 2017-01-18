@@ -18,10 +18,10 @@ if(isset ($_GET['id']) && !empty($_GET['id']))
     <form method="post" action="message.php">
         <div class="col-sm-10">  
             <div class="form-group">
-             <?php if ($connect == true) { ?> <textarea id="message" name="message" class="form-control" placeholder="Message"><?php if(isset($contenu)&&!empty($contenu)){echo $contenu;}?></textarea>
-             <input type="hidden" id="id" name="id" value="<?php 
-             if(isset ($_GET['id']) && !empty($_GET['id']))
-             {
+               <?php if ($connect == true) { ?> <textarea id="message" name="message" class="form-control" placeholder="Message"><?php if(isset($contenu)&&!empty($contenu)){echo $contenu;}?></textarea>
+               <input type="hidden" id="id" name="id" value="<?php 
+               if(isset ($_GET['id']) && !empty($_GET['id']))
+               {
                 echo $_GET['id'];
             }?>"></input>
         </div>
@@ -43,7 +43,7 @@ if (isset($_GET['page']))
 }
 else
 {
-   $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages INNER JOIN utilisateur ON utilisateur.id = messages.user_id ORDER BY date DESC LIMIT 0,".$mpp) ;
+ $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages INNER JOIN utilisateur ON utilisateur.id = messages.user_id ORDER BY date DESC LIMIT 0,".$mpp) ;
 }
 $stmt->execute();
 
@@ -60,14 +60,14 @@ while ($data = $stmt -> fetch()) {
         </div>
         
         <div class="col-md-1 col-sm-3">
-             <?php if ($connect == true) { ?><a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id_message'] ;?>" role="button">Supprimer</a><?php } ?>
-        </div>
-        <div class="col-md-1 col-sm-3">
-             <?php if ($connect == true) { ?><a class="btn btn-primary" href="index.php?id=<?php echo $data['id_message'] ;?>" role="button">Modifier</a><?php } ?>
-        </div>
-    </blockquote>
- <div class="col-md-2 col-sm-6 text-center" style="color: #18BC9C;">
-       <?= $data['pseudo']?>
+           <?php if ($connect == true) { ?><a class="btn btn-danger " href="sup_message.php?id=<?php echo $data['id_message'] ;?>" role="button">Supprimer</a><?php } ?>
+       </div>
+       <div class="col-md-1 col-sm-3">
+           <?php if ($connect == true) { ?><a class="btn btn-primary" href="index.php?id=<?php echo $data['id_message'] ;?>" role="button">Modifier</a><?php } ?>
+       </div>
+   </blockquote>
+   <div class="col-md-2 col-sm-6 text-center" style="color: #18BC9C;">
+     Auteur : <?= $data['pseudo']?>
  </div>
 
  <?php
@@ -85,33 +85,33 @@ while ($data = $stmt -> fetch()) {
       <ul class="pagination pagination-lg">
         <?php if(isset($_GET['page'])&&($_GET['page']!=1)) { ?>
         <li>
-          <a href="index.php?page=<?php echo $_GET['page']-1;?>" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-        </a>
-    </li>
+            <a href="index.php?page=<?php echo $_GET['page']-1;?>" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
     <?php
-    } 
-    $nombrePage = ceil($nbPage/$mpp);
-    for($i=0;$i<$nombrePage;$i++)
-    {
-        ?>
+} 
+$nombrePage = ceil($nbPage/$mpp);
+for($i=0;$i<$nombrePage;$i++)
+{
+    ?>
         <li><a href="index.php?page=<?php echo $i+1;?>"><?php echo $i+1 ?></a></li>
         <?php } ?>
         <li>
-          <a href="index.php?page=<?php
-            if(isset($_GET['page'])&&($_GET['page']!=1)) 
-            {
-                echo $_GET['page']+1;
-            }
-            else
-            {    
-               echo 2;
-            }
-       ?>" aria-label="Next">
-       <span aria-hidden="true">&raquo;</span>
-   </a>
-</li>
-</ul>
+            <a href="index.php?page=<?php
+                if(isset($_GET['page'])&&($_GET['page']!=1)) 
+                {
+                    echo $_GET['page']+1;
+                }
+                else
+                {    
+                    echo 2;
+                }
+             ?>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
 </nav>
 </div>
 <?php include('includes/bas.inc.php'); ?>
