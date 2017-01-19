@@ -10,20 +10,20 @@ if(isset($_POST['email'])&&!empty($_POST['email']) && isset($_POST['mdp'])&&!emp
 
   $stmt = $pdo->prepare("SELECT * FROM utilisateur  WHERE email = ? LIMIT 1") ;
   $stmt->bindParam('1', $mail);
-  $stmt->execute();    // Exécute la déclaration. 
+  $stmt->execute();   
 
   if($resultat = $stmt -> fetch())
   {
     $id = $resultat['id'];
     $pseudo= $resultat['pseudo'];
     $db_mdp = $resultat['mdp'];
-    $mdp = hash('md5',$mdp);
+    $mdp = hash('md5',$mdp); //cryptage du mot de passe en md5
 
-    if ($db_mdp == $mdp) 
+    if ($db_mdp == $mdp) // verifie que le mot de passe de l'on recupère et que l'on a crypter est égale a celui de la base de données
     {
       
       $sid = md5($mail.time());
-      setcookie('CookieBlog', $sid, time() + 3600);
+      setcookie('CookieBlog', $sid, time() + 3600); // création du cookie
       if(!empty($sid))
       {
         $stmt = $pdo->prepare("UPDATE utilisateur SET sid=:sid WHERE id = :id ");
@@ -79,14 +79,14 @@ else
 
       if(email=="")
       {
-          $("#msgErreur").html("Le mail n'existe pas ou est mal renseigné");
+          $("#msgErreur").html("Veuillez saisir un email !");
           $("#msgErreur").removeClass();
           $("#msgErreur").addClass("alert alert-danger");
           return false;
       }
       else if(mdp=="")
       {
-          $("#msgErreur").html("Le mot de passe n'est pas valide");
+          $("#msgErreur").html("Veuillez saisir un mot de passe !");
           $("#msgErreur").removeClass();
           $("#msgErreur").addClass("alert alert-danger");
           return false;

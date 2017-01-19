@@ -40,7 +40,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="#page-top">Micro blog</a>
+                    <a class="navbar-brand" href="index.php">Micro blog</a>
 
                 </div>
 
@@ -52,11 +52,13 @@
                         </li>
                         <li>
                           <?php if ($connect == true) { ?>
-                          <form class="navbar-form navbar-left">
+                          <form class="navbar-form navbar-left" action="index.php" method="GET">
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Search">
+                              <input type="text" class="form-control" name="search" placeholder="Rechercher">
                           </div>
-                          <button type="submit" class="btn btn-default">Submit</button>
+                           <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span> 
+                            </button>
                       </form>
                       <?php  } ?>
                   </li>
