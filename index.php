@@ -80,13 +80,24 @@ $list_contenu= array();
 $i = 0;
 while ($data = $stmt -> fetch()) 
 {
-   $list_contenu[$i]['contenu'] = $data['contenu'];
    $list_contenu[$i]['date'] = date('d/m/Y H:i:s',$data['date']);
    $list_contenu[$i]['id_message'] = $data['id_message'];
    $list_contenu[$i]['pseudo'] = $data['pseudo'];
+   $string = $data['contenu'];
+   $pattern = array('/https?:\/\/[\w]+\.[a-z\.]+\/?[\w]+?/',
+    '/[a-zA-Z0-9\-\.]+@[a-zA-Z0-9\-\.]+\.[a-z]+/',
+    '/\S*#([\w]+\S*)/');
+   $replacement = array('<a href="$0" target="_blank">$0</a>',
+    '<a href="mailto:$0">$0</a>',
+    '<a href="http://localhost:8080/micro_blogv2/index.php?search=$1">$0</a>');
+
+   $list_contenu[$i]['contenu'] = preg_replace($pattern, $replacement, $string);
+
+   
    $i++;
 }
-
+    
+    
 $tpl->assign('list_contenu',$list_contenu);
 
 $tpl->assign(array(
@@ -120,6 +131,7 @@ $tpl->assign('nombrePage',$nombrePage);
 $tpl->assign('connect',$connect);
 
 $tpl->assign('mpp',$mpp);
+
 
 $tpl->display("index.tpl");
 ?>

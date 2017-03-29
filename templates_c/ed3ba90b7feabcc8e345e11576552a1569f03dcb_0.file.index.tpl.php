@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-03-29 14:47:21
-  from "C:\UwAmp\www\micro_blogv2\index.tpl" */
+/* Smarty version 3.1.30, created on 2017-02-28 16:25:10
+  from "C:\UwAmp\www\micro_blogv2\template\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58dbacd9bb4bf4_83759971',
+  'unifunc' => 'content_58b59656b293d3_07128528',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '98333a3cc23202d40890b4287e97f4fe966f9170' => 
+    'ed3ba90b7feabcc8e345e11576552a1569f03dcb' => 
     array (
-      0 => 'C:\\UwAmp\\www\\micro_blogv2\\index.tpl',
-      1 => 1490791639,
+      0 => 'C:\\UwAmp\\www\\micro_blogv2\\template\\index.tpl',
+      1 => 1488284601,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:bas.tpl' => 1,
   ),
 ),false)) {
-function content_58dbacd9bb4bf4_83759971 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58b59656b293d3_07128528 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:haut.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-<!------ Affiche l'input si l'utilisateur est connecté------>
+<!------ Affiche l'input ------>
 <div class="row">              
     <form method="post" action="message.php">
         <div class="col-sm-10">  
@@ -50,21 +50,6 @@ echo $_smarty_tpl->tpl_vars['contenuInput']->value;?>
     <?php }?>                        
 </form>
 </div>
-<!------ Affiche l'apercu si l'utilisateur saisie quelque chose------>
-<div class="row apercu hidden" id="apercu" >              
-    <form>
-        <div class="col-sm-10">  
-            <div class="form-group">            
-               <p id="Msgapercu" name="Msgapercu" class="form-control">
-              </p>
-               <input type="hidden" id="idapercu" name="idapercu" value="<?php echo $_smarty_tpl->tpl_vars['getID']->value;?>
-"></input>     
-            </div>
-        </div>
-                       
-    </form>
-</div>
-
 
 <!-------- Affiche les messages ------>
 <?php
@@ -76,7 +61,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['conte']->value) {
   <div class="col-md-7 col-sm-6">
     <?php echo $_smarty_tpl->tpl_vars['conte']->value['contenu'];?>
 
-   
   </div>
   <div class="col-md-2 col-sm-3">
     <?php echo $_smarty_tpl->tpl_vars['conte']->value['date'];?>
@@ -104,7 +88,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['conte']->value) {
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
-
 
 
 
@@ -154,30 +137,5 @@ echo $_smarty_tpl->tpl_vars['getPage']->value+1;?>
 </nav>
 </div>
 <?php $_smarty_tpl->_subTemplateRender("file:bas.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
-
-<?php echo '<script'; ?>
->
-$(function(){
-  $('#message').keyup(function(){
-
-     $('#apercu').removeClass("hidden");
-    
-     var msg1 = document.getElementById('message').value;
-    $.get('apercu_msg.php',
-    {
-      message:msg1
-    },
-      function(data){
-        
-        document.getElementById("Msgapercu").innerHTML = data;
-       
-      }
-      );
-  });
-});
-  
-<?php echo '</script'; ?>
-><?php }
+}
 }

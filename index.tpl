@@ -1,5 +1,5 @@
 {include file="haut.tpl"}
-<!------ Affiche l'input ------>
+<!------ Affiche l'input si l'utilisateur est connecté------>
 <div class="row">              
     <form method="post" action="message.php">
         <div class="col-sm-10">  
@@ -20,12 +20,27 @@
     {/if}                        
 </form>
 </div>
+<!------ Affiche l'apercu si l'utilisateur saisie quelque chose------>
+<div class="row apercu hidden" id="apercu" >              
+    <form>
+        <div class="col-sm-10">  
+            <div class="form-group">            
+               <p id="Msgapercu" name="Msgapercu" class="form-control">
+              </p>
+               <input type="hidden" id="idapercu" name="idapercu" value="{$getID}"></input>     
+            </div>
+        </div>
+                       
+    </form>
+</div>
+
 
 <!-------- Affiche les messages ------>
 {foreach from=$list_contenu item=conte}
 <blockquote class="col-md-12 col-sm-8">
   <div class="col-md-7 col-sm-6">
     {$conte.contenu}
+   
   </div>
   <div class="col-md-2 col-sm-3">
     {$conte.date}
@@ -45,6 +60,7 @@
          Auteur : {$conte.pseudo}
   </div>
 {/foreach}
+
 
 
 <!------ Pagination ------>
@@ -80,3 +96,25 @@
 </nav>
 </div>
 {include file="bas.tpl"}
+
+<script>
+$(function(){
+  $('#message').keyup(function(){
+
+     $('#apercu').removeClass("hidden");
+    
+     var msg1 = document.getElementById('message').value;
+    $.get('apercu_msg.php',
+    {
+      message:msg1
+    },
+      function(data){
+        
+        document.getElementById("Msgapercu").innerHTML = data;
+       
+      }
+      );
+  });
+});
+  
+</script>
