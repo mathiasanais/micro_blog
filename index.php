@@ -42,7 +42,7 @@ if(isset($_GET['search'])&&!empty($_GET['search']))
     if (isset($_GET['page']))
     {
         //Requete qui permet de recuperer les messages pour le contenu recherché, et d'afficher 4 messages par page
-        $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages 
+        $stmt = $pdo->prepare("SELECT contenu,votes,date,messages.id AS id_message ,pseudo FROM messages 
             INNER JOIN utilisateur ON utilisateur.id = messages.user_id 
             WHERE contenu LIKE '%".$_GET['search']."%'
             OR pseudo LIKE '%".$_GET['search']."%'
@@ -51,7 +51,7 @@ if(isset($_GET['search'])&&!empty($_GET['search']))
     }
     else
     {
-       $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages 
+       $stmt = $pdo->prepare("SELECT contenu,votes,date,messages.id AS id_message ,pseudo FROM messages 
         INNER JOIN utilisateur ON utilisateur.id = messages.user_id 
         WHERE contenu LIKE '%".$_GET['search']."%'
         OR pseudo LIKE '%".$_GET['search']."%'
@@ -63,13 +63,13 @@ else
 {
     if (isset($_GET['page']))
     {
-        $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages 
+        $stmt = $pdo->prepare("SELECT contenu,votes,date,messages.id AS id_message ,pseudo FROM messages 
             INNER JOIN utilisateur ON utilisateur.id = messages.user_id
             ORDER BY date DESC LIMIT ".($_GET['page']*$mpp-$mpp).",".$mpp) ;
     }
     else
     {
-       $stmt = $pdo->prepare("SELECT contenu,date,messages.id AS id_message ,pseudo FROM messages 
+       $stmt = $pdo->prepare("SELECT contenu,votes,date,messages.id AS id_message ,pseudo FROM messages 
         INNER JOIN utilisateur ON utilisateur.id = messages.user_id 
         ORDER BY date DESC LIMIT 0,".$mpp) ;
    }
@@ -83,6 +83,7 @@ while ($data = $stmt -> fetch())
    $list_contenu[$i]['date'] = date('d/m/Y H:i:s',$data['date']);
    $list_contenu[$i]['id_message'] = $data['id_message'];
    $list_contenu[$i]['pseudo'] = $data['pseudo'];
+    $list_contenu[$i]['votes'] = $data['votes'];
    $string = $data['contenu'];
    $pattern = array('/https?:\/\/[\w]+\.[a-z\.]+\/?[\w]+?/',
     '/[a-zA-Z0-9\-\.]+@[a-zA-Z0-9\-\.]+\.[a-z]+/',
@@ -128,6 +129,7 @@ $tpl->assign('nbMessage',$nbMessage);
 $nombrePage = ceil($nbMessage/$mpp);
 
 $tpl->assign('nombrePage',$nombrePage);
+
 $tpl->assign('connect',$connect);
 
 $tpl->assign('mpp',$mpp);

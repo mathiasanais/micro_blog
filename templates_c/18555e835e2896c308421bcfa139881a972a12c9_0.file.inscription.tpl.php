@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-01-31 18:56:05
+/* Smarty version 3.1.30, created on 2017-03-29 18:52:02
   from "C:\UwAmp\www\micro_blogv2\inscription.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5890cfb5b82f29_69639705',
+  'unifunc' => 'content_58dbe6326c8480_86602717',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18555e835e2896c308421bcfa139881a972a12c9' => 
     array (
       0 => 'C:\\UwAmp\\www\\micro_blogv2\\inscription.tpl',
-      1 => 1485885271,
+      1 => 1490799909,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:bas.tpl' => 1,
   ),
 ),false)) {
-function content_5890cfb5b82f29_69639705 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58dbe6326c8480_86602717 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:haut.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -39,7 +39,7 @@ $_smarty_tpl->_subTemplateRender("file:haut.tpl", $_smarty_tpl->cache_id, $_smar
 		</div> 
 		<div class="container col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4 col-xs-12 ">
 			<form class="form-horizontal" method="post" action="inscription.php">
-				<div style="border: 2px solid #2C3E50; border-radius : 5px; padding-top: 2%; padding-left: 8%;padding-right: 8%;padding-bottom: 8%;">
+				<div class="cadreInscription"style="">
 					<div class="form-group">
 						<label for="nom" class="cols-sm-2 control-label">Nom</label>
 						<div class="cols-sm-10">

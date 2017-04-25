@@ -12,7 +12,7 @@
 		</div> 
 		<div class="container col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4 col-xs-12 ">
 			<form class="form-horizontal" method="post" action="inscription.php">
-				<div style="border: 2px solid #2C3E50; border-radius : 5px; padding-top: 2%; padding-left: 8%;padding-right: 8%;padding-bottom: 8%;">
+				<div class="cadreInscription"style="">
 					<div class="form-group">
 						<label for="nom" class="cols-sm-2 control-label">Nom</label>
 						<div class="cols-sm-10">

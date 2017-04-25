@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-01-31 18:09:12
+/* Smarty version 3.1.30, created on 2017-03-29 18:49:06
   from "C:\UwAmp\www\micro_blogv2\bas.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5890c4b8d7bbe3_68865689',
+  'unifunc' => 'content_58dbe5821c40c0_81954617',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '686b95594bd499006f7b0053b45463bab5d12db2' => 
     array (
       0 => 'C:\\UwAmp\\www\\micro_blogv2\\bas.tpl',
-      1 => 1485882426,
+      1 => 1490806106,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5890c4b8d7bbe3_68865689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58dbe5821c40c0_81954617 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
         </div>
@@ -38,7 +38,8 @@ function content_5890c4b8d7bbe3_68865689 (Smarty_Internal_Template $_smarty_tpl)
                             <br>Beverly Hills, CA 90210</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        
+                        <a href="https://www.facebook.com/" target="_blank" class="icone facebook" ></a>
+                        <a href="https://www.twitter.com/" target="_blank" class="icone twitter" ></a>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>A propos</h3>
@@ -66,13 +67,13 @@ function content_5890c4b8d7bbe3_68865689 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <!-- jQuery -->
-    <?php echo '<script'; ?>
- src="vendor/jquery/jquery.min.js"><?php echo '</script'; ?>
+   <?php echo '<script'; ?>
+ src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"><?php echo '</script'; ?>
 >
 
     <!-- Bootstrap Core JavaScript -->
     <?php echo '<script'; ?>
- src="vendor/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
 
     <!-- Plugin JavaScript -->
@@ -85,6 +86,9 @@ function content_5890c4b8d7bbe3_68865689 (Smarty_Internal_Template $_smarty_tpl)
  src="js/freelancer.min.js"><?php echo '</script'; ?>
 >
 
+    <?php echo '<script'; ?>
+ type="text/javascript" src="jquery-3.1.1.js"><?php echo '</script'; ?>
+>
 </body>
 
 </html>

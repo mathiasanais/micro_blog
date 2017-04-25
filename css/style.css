@@ -1,0 +1,73 @@
+.cadreInscription
+{
+	border: 2px solid #2C3E50; 
+	border-radius : 5px; 
+	padding-top: 2%; 
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-bottom: 8%;
+}
+.icone
+{
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	background-image: url('../img/redes.png');
+
+}
+.facebook
+{
+	background-position: -48px 0;
+}
+.facebook:hover
+{
+	background-position: -48px 48px;
+}
+.twitter
+{
+	background-position: -144px 96px;
+}
+.twitter:hover
+{
+	background-position: -144px 48px;
+}
+.authorColor
+{
+	color: #18BC9C;
+}
+.cadreCo
+{
+	border: 2px solid #2C3E50; 
+	border-radius : 5px; 
+	padding-top: 2%; 
+	padding-left: 8%;
+	padding-right: 8%;
+	padding-bottom: 8%;
+}
+.textCo
+{
+	margin-bottom:6%; 
+	text-align:center;
+}
+.marginBottom5
+{
+	margin-bottom:5%;
+}
+.vote
+{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/spriteTwitter.png');
+	margin:0;
+	padding: 0;
+	line-height: 100%; 
+	border: 0;
+	
+
+}
+.vote:hover
+{
+	background-position: -7px -350px;
+
+}

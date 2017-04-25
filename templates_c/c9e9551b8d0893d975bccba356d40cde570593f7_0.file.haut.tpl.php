@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-01-31 18:24:59
+/* Smarty version 3.1.30, created on 2017-03-29 18:58:41
   from "C:\UwAmp\www\micro_blogv2\haut.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5890c86b73d177_18980440',
+  'unifunc' => 'content_58dbe7c17681e7_20955020',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9e9551b8d0893d975bccba356d40cde570593f7' => 
     array (
       0 => 'C:\\UwAmp\\www\\micro_blogv2\\haut.tpl',
-      1 => 1485883497,
+      1 => 1490806713,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5890c86b73d177_18980440 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58dbe7c17681e7_20955020 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,13 +35,18 @@ function content_5890c86b73d177_18980440 (Smarty_Internal_Template $_smarty_tpl)
     <title>Micro blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!---Marche pas-->
+    <link href="lib/min/?f=micro_blogv2/css/style.css">
+    <!---->
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -55,9 +60,7 @@ function content_5890c86b73d177_18980440 (Smarty_Internal_Template $_smarty_tpl)
  src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"><?php echo '</script'; ?>
 >
         <![endif]-->
-        <?php echo '<script'; ?>
- type="text/javascript" src="jquery-3.1.1.js"><?php echo '</script'; ?>
->
+      
     </head>
 
     <body id="page-top" class="index">
